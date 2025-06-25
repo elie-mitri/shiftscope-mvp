@@ -6,7 +6,6 @@ export interface Database {
       profiles: {
         Row: {
           id: string
-          email: string | null
           anonymous_display_name: string | null
           role: string | null
           created_at: string
@@ -14,7 +13,6 @@ export interface Database {
         }
         Insert: {
           id: string
-          email?: string | null
           anonymous_display_name?: string | null
           role?: string | null
           created_at?: string
@@ -22,7 +20,6 @@ export interface Database {
         }
         Update: {
           id?: string
-          email?: string | null
           anonymous_display_name?: string | null
           role?: string | null
           created_at?: string
