@@ -33,28 +33,43 @@ export function AuthForm({ mode }: AuthFormProps) {
 
     try {
       if (mode === 'signup') {
+        console.log('Starting signup process for:', email)
+        
         const { data, error } = await supabase.auth.signUp({
           email,
           password,
         })
 
-        if (error) throw error
+        console.log('Supabase signup response:', { data, error })
+
+        if (error) {
+          console.error('Supabase auth error:', error)
+          throw error
+        }
 
         if (data.user) {
+          console.log('User created, creating profile for:', data.user.id)
+          
           // Create profile with anonymous display name
+          const profileData = {
+            id: data.user.id,
+            email: data.user.email,
+            anonymous_display_name: displayName || generateAnonymousName(),
+            role: 'worker' // Default role
+          }
+          
+          console.log('Profile data to insert:', profileData)
+          
           const { error: profileError } = await supabase
             .from('profiles')
-            .insert({
-              id: data.user.id,
-              email: data.user.email,
-              anonymous_display_name: displayName || generateAnonymousName(),
-              role: 'worker' // Default role
-            })
+            .insert(profileData)
 
           if (profileError) {
             console.error('Profile creation error:', profileError)
-            throw profileError
+            throw new Error(`Profile creation failed: ${profileError.message}`)
           }
+          
+          console.log('Profile created successfully')
         }
 
         alert('Check your email for verification link!')
@@ -68,7 +83,9 @@ export function AuthForm({ mode }: AuthFormProps) {
         router.push('/dashboard')
       }
     } catch (error: unknown) {
-      setError(error instanceof Error ? error.message : 'An error occurred')
+      console.error('Auth error:', error)
+      const errorMessage = error instanceof Error ? error.message : 'An error occurred'
+      setError(errorMessage)
     } finally {
       setLoading(false)
     }
