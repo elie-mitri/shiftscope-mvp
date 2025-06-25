@@ -53,8 +53,7 @@ export function AuthForm({ mode }: AuthFormProps) {
           // Create profile with anonymous display name
           const profileData = {
             id: data.user.id,
-            anonymous_display_name: displayName || generateAnonymousName(),
-            role: 'worker' // Default role
+            anonymous_display_name: displayName || generateAnonymousName()
           }
           
           console.log('Profile data to insert:', profileData)
