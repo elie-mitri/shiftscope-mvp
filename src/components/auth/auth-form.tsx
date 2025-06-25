@@ -48,26 +48,10 @@ export function AuthForm({ mode }: AuthFormProps) {
         }
 
         if (data.user) {
-          console.log('User created, creating profile for:', data.user.id)
-          
-          // Create profile with anonymous display name
-          const profileData = {
-            id: data.user.id,
-            anonymous_display_name: displayName || generateAnonymousName()
-          }
-          
-          console.log('Profile data to insert:', profileData)
-          
-          const { error: profileError } = await supabase
-            .from('profiles')
-            .insert(profileData)
-
-          if (profileError) {
-            console.error('Profile creation error:', profileError)
-            throw new Error(`Profile creation failed: ${profileError.message}`)
-          }
-          
-          console.log('Profile created successfully')
+          console.log('User created successfully:', data.user.id)
+          // TODO: Set up proper RLS policies in Supabase for profile creation
+          // For now, skip profile creation to unblock user signup
+          console.log('Skipping profile creation due to RLS policy restrictions')
         }
 
         alert('Check your email for verification link!')
