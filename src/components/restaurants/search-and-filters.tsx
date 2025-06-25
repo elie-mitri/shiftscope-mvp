@@ -93,7 +93,7 @@ export function SearchAndFilters() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search restaurants..."
-              className="w-full px-3 py-3 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-400 text-sm sm:text-base"
+              className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-600 text-sm sm:text-base"
             />
           </div>
           <button
@@ -119,7 +119,7 @@ export function SearchAndFilters() {
                 // Auto-update URL when filter changes
                 setTimeout(updateURL, 100)
               }}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
             >
               <option value="">All Boroughs</option>
               {NYC_BOROUGHS.map(borough => (
@@ -140,7 +140,7 @@ export function SearchAndFilters() {
                 setSelectedCuisine(e.target.value)
                 setTimeout(updateURL, 100)
               }}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
             >
               <option value="">All Cuisines</option>
               {CUISINE_TYPES.map(cuisine => (
@@ -161,7 +161,7 @@ export function SearchAndFilters() {
                 setSelectedNeighborhood(e.target.value)
                 setTimeout(updateURL, 100)
               }}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
             >
               <option value="">All Neighborhoods</option>
               {neighborhoods.map(neighborhood => (
@@ -186,7 +186,7 @@ export function SearchAndFilters() {
                   setSortBy(e.target.value)
                   setTimeout(updateURL, 100)
                 }}
-                className="px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                className="px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm text-gray-900"
               >
                 <option value="newest">Newest First</option>
                 <option value="name">Name A-Z</option>
@@ -222,7 +222,7 @@ export function SearchAndFilters() {
                     setMinRating(e.target.value)
                     setTimeout(updateURL, 100)
                   }}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                 >
                   <option value="">Any Rating</option>
                   <option value="4">4+ Stars</option>

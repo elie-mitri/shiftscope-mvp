@@ -27,22 +27,22 @@ export function HeroSection() {
             <span className="block text-blue-600">in Seconds, Not Hours</span>
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-xl text-gray-600">
-            Search <strong>60+ NYC restaurants</strong> instantly. Anonymous workplace reviews covering management, pay, scheduling, and work-life balance.
+            Search <strong>100+ NYC restaurants</strong> instantly. Anonymous workplace reviews covering management, pay, scheduling, and work-life balance.
           </p>
           
           {/* Competitive Advantage Callouts */}
           <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm">
-            <div className="flex items-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-white/40">
+            <div className="flex items-center bg-white px-4 py-2 rounded-full border border-gray-300 shadow-sm">
               <span className="text-green-600 mr-2">✓</span>
-              <span className="font-medium">Searchable Database</span>
+              <span className="font-semibold text-gray-800">Searchable Database</span>
             </div>
-            <div className="flex items-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-white/40">
+            <div className="flex items-center bg-white px-4 py-2 rounded-full border border-gray-300 shadow-sm">
               <span className="text-green-600 mr-2">✓</span>
-              <span className="font-medium">Mobile-Optimized</span>
+              <span className="font-semibold text-gray-800">Mobile-Optimized</span>
             </div>
-            <div className="flex items-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-white/40">
+            <div className="flex items-center bg-white px-4 py-2 rounded-full border border-gray-300 shadow-sm">
               <span className="text-green-600 mr-2">✓</span>
-              <span className="font-medium">Complete NYC Coverage</span>
+              <span className="font-semibold text-gray-800">Complete NYC Coverage</span>
             </div>
           </div>
 
@@ -53,7 +53,7 @@ export function HeroSection() {
               className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-semibold rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-lg"
             >
               <span className="mr-2">🔍</span>
-              Search 60+ Restaurants
+              Search 100+ Restaurants
             </Link>
             <Link
               href="/reviews/new"
