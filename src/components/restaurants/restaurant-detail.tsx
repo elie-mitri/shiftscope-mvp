@@ -296,42 +296,64 @@ export function RestaurantDetail({ restaurantId }: RestaurantDetailProps) {
           </div>
         </div>
 
-        {/* Photos/Gallery */}
+        {/* Additional Info */}
         <div className="lg:col-span-1">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Restaurant Photos</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Additional Info</h3>
           <div className="space-y-4">
-            {/* Main Photo */}
-            <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
-              <div className="text-center text-gray-500">
-                <div className="text-4xl mb-2">🏪</div>
-                <div className="text-sm font-medium">No photos yet</div>
-                <button className="text-xs text-blue-600 hover:text-blue-800 mt-2 font-medium">
-                  Add restaurant photos
-                </button>
-              </div>
-            </div>
-            
-            {/* Additional photo slots */}
-            <div className="grid grid-cols-3 gap-2">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="aspect-square bg-gray-100 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center hover:bg-gray-200 transition-colors cursor-pointer">
-                  <span className="text-gray-400 text-lg font-light">+</span>
+            {/* Google Rating */}
+            {restaurant.google_rating && (
+              <div className="border border-gray-200 rounded-lg p-4">
+                <h4 className="font-medium text-gray-900 mb-2">Google Reviews</h4>
+                <div className="flex items-center">
+                  <span className="text-yellow-400 text-lg mr-2">⭐</span>
+                  <span className="text-lg font-semibold text-gray-900">
+                    {restaurant.google_rating.toFixed(1)}
+                  </span>
+                  <span className="text-sm text-gray-600 ml-2">
+                    (Google customers)
+                  </span>
                 </div>
-              ))}
-            </div>
+              </div>
+            )}
 
-            {/* Work Environment Photos */}
-            <div className="border-t border-gray-200 pt-4">
-              <h4 className="font-medium text-gray-900 mb-2 text-sm">Work Areas</h4>
-              <div className="grid grid-cols-2 gap-2">
-                <div className="aspect-video bg-gray-100 rounded border-dashed border border-gray-300 flex items-center justify-center text-xs text-gray-500">
-                  Kitchen
-                </div>
-                <div className="aspect-video bg-gray-100 rounded border-dashed border border-gray-300 flex items-center justify-center text-xs text-gray-500">
-                  Dining Area
+            {/* Price Level */}
+            {restaurant.price_level && (
+              <div className="border border-gray-200 rounded-lg p-4">
+                <h4 className="font-medium text-gray-900 mb-2">Price Range</h4>
+                <div className="flex items-center">
+                  <span className="text-green-600 text-lg">
+                    {'$'.repeat(restaurant.price_level)}
+                  </span>
+                  <span className="text-gray-400 text-lg ml-1">
+                    {'$'.repeat(4 - restaurant.price_level)}
+                  </span>
                 </div>
               </div>
-            </div>
+            )}
+
+            {/* Google Maps Link */}
+            {restaurant.latitude && restaurant.longitude && (
+              <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
+                <h4 className="font-medium text-gray-900 mb-2">Location</h4>
+                <a
+                  href={`https://www.google.com/maps?q=${restaurant.latitude},${restaurant.longitude}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  <div className="flex items-center">
+                    <span className="text-lg mr-2">📍</span>
+                    <div>
+                      <div className="font-medium">View on Google Maps</div>
+                      <div className="text-xs text-gray-500">
+                        {restaurant.neighborhood && `${restaurant.neighborhood}, `}{restaurant.borough}
+                      </div>
+                    </div>
+                  </div>
+                  <span className="text-sm">↗</span>
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>
