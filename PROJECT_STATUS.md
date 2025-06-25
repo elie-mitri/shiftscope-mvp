@@ -425,6 +425,31 @@ Our primary competitive moat is search/discovery vs competitors like Heard.nyc. 
 
 ## 🔮 **Future Development Priorities**
 
+### **🔐 Authentication System Improvements (High Priority)**
+*Discovered during friend testing - temporary workarounds in place*
+
+#### **Issues Identified:**
+1. **Row Level Security (RLS) Policies** - Supabase profiles table blocks user inserts
+2. **Database Schema Mismatch** - Profiles table structure differs from TypeScript types
+3. **Clunky Signup Flow** - Multi-step process needs streamlining for better UX
+
+#### **Current Temporary Solutions:**
+- **Profile creation disabled** during signup to unblock user registration
+- **Email verification disabled** in Supabase for immediate access
+- **Basic auth working** - users can sign up, sign in, sign out successfully
+
+#### **Required Development:**
+1. **Configure proper RLS policies** in Supabase dashboard for profiles table
+2. **Verify and update database schema** - ensure profiles table matches application needs
+3. **Redesign signup/login flow** - seamless single-step registration
+4. **Re-enable profile creation** with proper permissions and error handling
+5. **User onboarding improvements** - better first-time user experience
+
+#### **Recommended Approach:**
+- **Post-beta priority** - current workaround sufficient for friend testing
+- **Complete auth system overhaul** - rethink user data storage and management
+- **Consider progressive profile completion** - minimal signup, detailed profile later
+
 ### **📊 Enhanced Review Data Integration (Requires Backend Changes)**
 *Note: The enhanced review form UI is complete, but data integration needs API/database updates*
 
@@ -440,13 +465,21 @@ Our primary competitive moat is search/discovery vs competitors like Heard.nyc. 
 - **Tip pooling transparency** - clear breakdown of how tips are distributed
 - **Management approval trends** - track management quality over time
 
-### **🎯 Next Immediate Priorities**
+### **🎯 Current Status: Ready for Friend Testing**
 
 1. ✅ **Import Real Data:** Run Google Places import for Williamsburg *(COMPLETE - 100+ restaurants imported)*
 2. ✅ **End-to-End Testing:** Test complete user flows with real data *(COMPLETE - review system tested)*
 3. ✅ **Production Deployment:** Move from localhost to production environment *(COMPLETE - deployed to Vercel)*
-4. 🔄 **Friend Testing Phase:** Gather feedback on enhanced review form and mobile UX
-5. 🔄 **Enhanced Data Integration:** Implement backend for new review fields (post-beta)
+4. ✅ **Authentication Issues Resolved:** Signup/signin working with temporary workarounds *(COMPLETE - ready for users)*
+5. 🔄 **Friend Testing Phase:** Gather feedback on enhanced review form and mobile UX *(IN PROGRESS)*
+
+### **🎯 Post-Beta Development Queue**
+*To be prioritized after friend testing feedback*
+
+1. **Authentication System Overhaul** - Fix RLS policies, streamline signup flow
+2. **Enhanced Review Data Integration** - Implement backend for new wage/benefits fields  
+3. **Review System Improvements** - Based on friend testing feedback
+4. **Mobile UX Refinements** - Address any usability issues discovered
 
 ---
 
