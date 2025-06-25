@@ -242,6 +242,30 @@ src/
 6. ⏳ Test core user flows end-to-end
 7. ⏳ Verify mobile experience on real devices
 
+## 🛡️ **Long-Term Competitive Defense Strategy**
+
+*Added from competitive_strategy_guide.md analysis*
+
+### **Defending Search & Discovery Advantage**
+Our primary competitive moat is search/discovery vs competitors like Heard.nyc. To maintain this advantage long-term:
+
+#### **Network Effects Strategy**
+- **More reviews → better search → more users → more reviews** (virtuous cycle)
+- Position ShiftScope as the "searchable" restaurant worker platform
+- Encourage workers to "add their workplace to ShiftScope"
+
+#### **Unique Data Advantages** 
+- **Real-time insights**: Scheduling pattern tracking, wage trend analysis
+- **Worker-specific features**: Shift-swapping, peer messaging within restaurant networks
+- **Geographic intelligence**: Neighborhood-level workplace insights
+
+#### **Community Lock-in**
+- **Worker-to-worker network**: Direct messaging, advice sharing
+- **Industry advocacy**: Position as THE platform for NYC restaurant worker rights
+- **Professional development**: Training resources, career advancement tracking
+
+*Note: Search is eventually copyable, so building sustainable advantages through data network effects and community features is critical for long-term success.*
+
 ## 💡 **Technical Debt & Future Improvements**
 
 ### **Low Priority Items**
