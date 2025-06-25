@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import { User } from '@supabase/supabase-js'
@@ -9,12 +10,32 @@ interface AuthButtonProps {
 }
 
 export function AuthButton({ user }: AuthButtonProps) {
+  const [signingOut, setSigningOut] = useState(false)
   const router = useRouter()
   const supabase = createClient()
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut()
-    router.push('/')
+    if (signingOut) return // Prevent double clicks
+    
+    try {
+      setSigningOut(true)
+      console.log('Starting sign out process...')
+      
+      const { error } = await supabase.auth.signOut()
+      
+      if (error) {
+        console.error('Sign out error:', error)
+        throw error
+      }
+      
+      console.log('Sign out successful, redirecting...')
+      // Force a full page refresh to clear all state
+      window.location.href = '/'
+    } catch (error) {
+      console.error('Failed to sign out:', error)
+      // Try to redirect anyway
+      window.location.href = '/'
+    }
   }
 
   if (user) {
@@ -25,9 +46,10 @@ export function AuthButton({ user }: AuthButtonProps) {
         </span>
         <button
           onClick={handleSignOut}
-          className="bg-gray-600 text-white px-4 py-2 rounded-md text-sm hover:bg-gray-700"
+          disabled={signingOut}
+          className="bg-gray-600 text-white px-4 py-2 rounded-md text-sm hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Sign Out
+          {signingOut ? 'Signing Out...' : 'Sign Out'}
         </button>
       </div>
     )
